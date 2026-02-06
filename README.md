@@ -20,13 +20,6 @@ This project aims to classify human activity sequences (e.g., fall vs. non-fall)
 - A virtual environment tool (venv/conda/poetry)
 - GPU support (optional, recommended for training)
 
-### Install Dependencies
-
-```bash
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-```
 
 > If you don’t have a `requirements.txt` yet, create one based on your training script dependencies (e.g., `torch`, `tensorflow`, `opencv-python`, `numpy`, `scikit-learn`).
 
@@ -40,21 +33,9 @@ pip install -r requirements.txt
 4. If working with sensor data:
    - Convert signals into 2D representations (e.g., spectrograms) suitable for CNNs.
 
-Suggested folder layout:
-
-```
-.
-├── data/
-│   ├── raw/
-│   ├── processed/
-│   ├── train/
-│   ├── val/
-│   └── test/
-```
-
 ## Training
 
-Create a training script (e.g., `train.py`) that:
+Create a training script that:
 
 - Loads your dataset.
 - Applies augmentation and normalization.
@@ -62,49 +43,14 @@ Create a training script (e.g., `train.py`) that:
 - Trains and evaluates the model.
 - Saves the best checkpoint.
 
-Example command:
-
-```bash
-python train.py --config configs/train.yaml
-```
-
 ## Evaluation
 
 Track performance with metrics such as:
 
 - Accuracy
 - Precision / Recall / F1
-- Confusion matrix
-- ROC-AUC (for binary classification)
 
-## Deployment
 
-Export the model for inference:
 
-- TorchScript or ONNX for PyTorch
-- SavedModel or TFLite for TensorFlow
 
-Consider packaging a lightweight inference script for edge devices.
 
-## Repository Structure
-
-```
-.
-├── README.md
-├── data/           # Dataset storage (not versioned)
-├── configs/        # Training/inference configuration files
-├── models/         # Saved model checkpoints
-├── scripts/        # Training, evaluation, and preprocessing scripts
-└── src/            # Core library code
-```
-
-## Contributing
-
-1. Fork the repository.
-2. Create a feature branch.
-3. Commit your changes.
-4. Open a pull request.
-
-## License
-
-Add your preferred license (e.g., MIT, Apache-2.0) to clarify usage and distribution rights.
